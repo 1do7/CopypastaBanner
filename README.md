@@ -2,9 +2,9 @@
 Tired of your terminal being too fucking boring?
 Then this is for you.
 ## Examples:
-<img src="https://i.imgur.com/WGsvsAL.png">
-<img src="https://i.imgur.com/oJPoVWd.png">
-<img src="https://i.imgur.com/HvEdUdK.png">
+![3.png]("https://i.imgur.com/WGsvsAL.png")
+![2.png]("https://i.imgur.com/oJPoVWd.png")
+![1.png]("https://i.imgur.com/HvEdUdK.png")
 ## How to setup:
 Just add this to your .bashrc file located in your home directory:
 ```python BANNER_LOCATION/banner.py```
