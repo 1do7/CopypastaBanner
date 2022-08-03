@@ -1,14 +1,13 @@
 import requests
 import textwrap,random
-import json,sys
-from pystyle import Add
+import json
 class CopyPasta():
     def get():
         while True:
             subreddit = 'copypasta'
             count = 1
-            timeframe = 'all' #hour, day, week, month, year, all
-            listing = 'random' # controversial, best, hot, new, random, rising, top
+            timeframe = 'all'
+            listing = 'random'
         
             def get_reddit(subreddit,count):
                 try:
@@ -415,5 +414,3 @@ if num!=len(word_list):
     word_list2 = wrapper.wrap(text=text1)
     for x in word_list2:
         print(x)
-#print(banner)
-#print(text)
