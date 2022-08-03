@@ -37,7 +37,7 @@ class CopyPasta():
             try:
                 selftext=get_post()[0]['data']['children'][0]['data']['selftext']
                 text2=unquote(selftext.strip().replace(r"&amp;#x200B;","").replace("\n"," ").replace("      ",""))
-                if text2!="":
+                if text2!="" and text2!="[ Removed by reddit on account of violating the [content policy](/help/contentpolicy). ]":
                     return text2
                     break
             except:
