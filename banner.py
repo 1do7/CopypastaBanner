@@ -409,7 +409,7 @@ banner="\n".join(makeblock(random.choice(list1)))
 list11=[]
 for x in banner.split("\n"):
     list11.append(len(x))
-width=terminal_size.columns-(max(list11)+1)
+width=terminal_size.columns-(max(list11)+2)
 wrapper = textwrap.TextWrapper(width=width)
 word_list = wrapper.wrap(text=text)
 
