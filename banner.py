@@ -1,3 +1,5 @@
+import shutil
+terminal_size = shutil.get_terminal_size(fallback=(120, 50))
 import requests
 import textwrap,random
 import json
@@ -403,9 +405,14 @@ def makeblock(x):
             list111.append(f"{x+(' '*(size-len(x)))}")
     return list111
 text=CopyPasta.get()
-wrapper = textwrap.TextWrapper(width=100)
-word_list = wrapper.wrap(text=text)
 banner="\n".join(makeblock(random.choice(list1)))
+list11=[]
+for x in banner.split("\n"):
+    list11.append(len(x))
+width=terminal_size.columns-(max(list11)+1)
+wrapper = textwrap.TextWrapper(width=width)
+word_list = wrapper.wrap(text=text)
+
 num=0
 abc=0
 for x in banner.split("\n"):
@@ -418,7 +425,7 @@ for x in banner.split("\n"):
             print(x)   
 if num!=len(word_list):
     text1="".join(word_list[num:])
-    wrapper = textwrap.TextWrapper(width=(100+abc))
+    wrapper = textwrap.TextWrapper(width=(width+abc))
     word_list2 = wrapper.wrap(text=text1)
     for x in word_list2:
         print(x)
