@@ -1,6 +1,7 @@
 import requests
 import textwrap,random
 import json
+from urllib.parse import unquote
 class CopyPasta():
     def get():
         while True:
@@ -31,8 +32,15 @@ class CopyPasta():
                 except:
                     print('An Error Occured')
                 return request.json()
-            selftext=get_post()[0]['data']['children'][0]['data']['selftext']
-            return selftext.strip().replace(r"&amp;#x200B;","")
+            try:
+                selftext=get_post()[0]['data']['children'][0]['data']['selftext']
+                text2=unquote(selftext.strip().replace(r"&amp;#x200B;","").replace("\n"," ").replace("      ",""))
+                if text2!="":
+                    return text2
+                    break
+            except:
+                pass
+            
 list1=[
 r"""
 Kid named finger:                    
