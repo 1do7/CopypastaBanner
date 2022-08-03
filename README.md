@@ -6,6 +6,10 @@ Then this is for you.
 ![2.png](2.png)
 ![1.png](3.png)
 ## How to setup:
+Install requests libary
+```
+pip install requests
+```
 Just add this to your .bashrc file located in your home directory:
 ```
 python BANNER_LOCATION/banner.py
