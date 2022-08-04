@@ -6,6 +6,8 @@ from urllib.parse import unquote
 
 from requests import get
 
+from ascii_arts import AsciiArts
+
 
 class CopyPasta():
     def __init__(self) -> None:
@@ -156,7 +158,7 @@ if __name__ == "__main__":
     if not text:
         text = "Failed to get copypasta :("
 
-    banner = makeblock(choice(ascii_art))
+    banner = makeblock(choice(AsciiArts.ascii_art))
     ascii_art1 = []
 
     [ascii_art1.append(len(x)) for x in banner.split("\n")]
