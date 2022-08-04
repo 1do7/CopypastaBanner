@@ -125,8 +125,9 @@ def gethalf(x) -> int:
     :param x str: Text to calculate
     :returns int: Amount of lines
     '''
-        
+
     return round(len(x.split('\n')/2)) # gets the length of the specified string, splits it and then counts the amount of items
+
 
 def makeblock(x) -> str:
     '''
@@ -150,6 +151,7 @@ def makeblock(x) -> str:
 
     return '\n'.join(ascii_art11)
 
+
 if __name__ == '__main__':
     text = CopyPasta().get() # gets a random copypasta
     if not text:
@@ -160,8 +162,8 @@ if __name__ == '__main__':
 
     [ascii_art1.append(len(x)) for x in banner.split("\n")]
 
-    width = terminal_size.columns-(max(ascii_art1)+3)
-    wrapper = textwrap.TextWrapper(width = width)
+    width = text.terminal_size.columns-(max(ascii_art1)+3)
+    wrapper = TextWrapper(width = width)
     word_list = wrapper.wrap(text = text)
 
     num = 0
@@ -175,10 +177,10 @@ if __name__ == '__main__':
                 num += 1
                 abc = len(x)
             else:
-                print(x)  
+                print(x)
 
     if num != len(word_list):
         text1 = "".join(word_list[num:])
-        wrapper = textwrap.TextWrapper(width=(width+abc))
+        wrapper = TextWrapper(width=(width+abc))
 
         [print(line) for line in wrapper.wrap(text=text1)]
