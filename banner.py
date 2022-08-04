@@ -517,7 +517,7 @@ if __name__ == '__main__':
 
     [ascii_art1.append(len(x)) for x in banner.split("\n")]
 
-    width = terminal_size.columns-(max(ascii_art1)+2)
+    width = terminal_size.columns-(max(ascii_art1)+3)
     wrapper = textwrap.TextWrapper(width = width)
     word_list = wrapper.wrap(text = text)
 
