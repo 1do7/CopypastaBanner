@@ -1,18 +1,19 @@
-import shutil
+from shutil import get_terminal_size
 
-terminal_size = shutil.get_terminal_size(fallback=(120, 50))
-
-import requests, textwrap, time
+from requests import get
+from textwrap import TextWrapper
+from time import sleep
 from urllib.parse import unquote
 
 from random import choice
 
+
 class CopyPasta():
+    def __init__(self) -> None:
+        self.terminal_size = get_terminal_size(fallback=(120, 50))
 
     def get(self) -> str:
         '''
-        get() -> str
-
         Gets a random copypasta from r/copypasta
 
         :returns str: The copypasta text
