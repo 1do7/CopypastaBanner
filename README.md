@@ -7,6 +7,7 @@ Then this is for you.
 ![1.png](3.png)
 ## How to setup:
 **YOUR TERMINAL NEEDS TO SUPPORT PRINTING BRALLIE CHARACTERS**
+
 **You can use the minified version to make it run faster**
 
 Install requests libary
