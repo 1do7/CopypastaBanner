@@ -68,7 +68,7 @@ class CopyPasta():
                         )
                     return request.json()
 
-                except Exception:
+                except ConnectionError:
                     return None
 
             top_post = get_reddit(subreddit, count)
@@ -148,9 +148,8 @@ def makeblock(x) -> str:
     """
 
     ascii_art1 = []
-    ascii_art11 = []
+    ascii_art11 = [len(c) for c in x.split("\n")]
 
-    [ascii_art1.append(len(c)) for c in x.split("\n")]
     size = max(ascii_art1)
 
     for x in x.split("\n"):
