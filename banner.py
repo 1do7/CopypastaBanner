@@ -1,11 +1,10 @@
 from shutil import get_terminal_size
-
-from requests import get
-from textwrap import TextWrapper
+from random import choice
 from time import sleep
+from textwrap import TextWrapper
 from urllib.parse import unquote
 
-from random import choice
+from requests import get
 
 
 class CopyPasta():
