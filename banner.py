@@ -50,8 +50,6 @@ class CopyPasta():
 
             def get_reddit(subreddit, count) -> dict | None:
                 """
-                get_reddit(subreddit, amount) -> dict or None
-
                 Gets the posts from the specified subreddit
 
                 :param subreddit str: Name of the subreddit
@@ -87,8 +85,6 @@ class CopyPasta():
 
             def get_post() -> dict | None:
                 """
-                get_post() -> dict or None
-
                 Gets the posts info
 
                 :returns dict or None: Json dictionary
@@ -133,8 +129,6 @@ class CopyPasta():
 
 def gethalf(x) -> int:
     """
-    gethalf(text) -> int
-
     Gets half of the lines of the text specified
 
     :param x str: Text to calculate
@@ -146,8 +140,6 @@ def gethalf(x) -> int:
 
 def makeblock(x) -> str:
     """
-    makeblock(ascii art) -> list
-
     Turns the ASCII art in a perfect block,
     to prevent lines from shifting
 
