@@ -6,7 +6,7 @@ Then this is for you.
 ![2.png](imgs/2.png)
 ![1.png](imgs/3.png)
 ## How to setup:
-**YOUR TERMINAL NEEDS TO SUPPORT PRINTING BRALLIE CHARACTERS**
+**YOUR TERMINAL NEEDS TO SUPPORT PRINTING BRAILLIE CHARACTERS**
 
 **You can use the minified version to make it run faster**
 
