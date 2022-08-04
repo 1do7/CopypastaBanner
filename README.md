@@ -2,9 +2,9 @@
 Tired of your terminal being too fucking boring?
 Then this is for you.
 ## Examples:
-![3.png](1.png)
-![2.png](2.png)
-![1.png](3.png)
+![3.png](imgs/1.png)
+![2.png](imgs/2.png)
+![1.png](imgs/3.png)
 ## How to setup:
 **YOUR TERMINAL NEEDS TO SUPPORT PRINTING BRALLIE CHARACTERS**
 
