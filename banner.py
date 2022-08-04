@@ -81,7 +81,7 @@ class CopyPasta():
             else:
                 url = top_post[0]["data"]["children"][0]["data"]["url"]
 
-            def get_post() -> dict | None:
+            def get_post(url) -> dict | None:
                 """
                 Gets the posts info
 
@@ -98,7 +98,7 @@ class CopyPasta():
                     return None
 
             try:
-                selftext = get_post()
+                selftext = get_post(url)
                 if not selftext:
                     continue
 
@@ -134,8 +134,8 @@ def makeblock(x) -> str:
     :returns str: Block-ified ASCII art
     """
 
-    ascii_art1 = []
-    ascii_art11 = [len(c) for c in x.split("\n")]
+    ascii_art1 = [len(c) for c in x.split("\n")]
+    ascii_art11 = []
 
     size = max(ascii_art1)
 
@@ -147,21 +147,20 @@ def makeblock(x) -> str:
 
 
 if __name__ == "__main__":
-    text = CopyPasta().get() # gets a random copypasta
+    text = CopyPasta() # gets a random copypasta
+    copypasta = text.get()
 
-    if not text:
-        text = "Failed to get copypasta :("
+    if not copypasta:
+        copypasta = "Failed to get copypasta :("
 
     banner = makeblock(choice(AsciiArts.ascii_art))
     ascii_art1 = [len(x) for x in banner.split("\n")]
 
     width = text.terminal_size.columns-(max(ascii_art1)+3)
     wrapper = TextWrapper(width=width)
-    word_list = wrapper.wrap(text=text)
+    word_list = wrapper.wrap(text=copypasta)
 
-    num = 0
-    abc = 0
-
+    abc, num = 0, 0
     for x in banner.split("\n"):
         if x != "":
             if num != len(word_list):
