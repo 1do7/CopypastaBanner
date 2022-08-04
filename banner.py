@@ -127,17 +127,6 @@ class CopyPasta():
         return "Failed to get copypasta :("
 
 
-def gethalf(x) -> int:
-    """
-    Gets half of the lines of the text specified
-
-    :param x str: Text to calculate
-    :returns int: Amount of lines
-    """
-
-    return round(len(x.split("\n")/2)) # gets the length of the specified string, splits it and then counts the amount of items
-
-
 def makeblock(x) -> str:
     """
     Turns the ASCII art in a perfect block,
