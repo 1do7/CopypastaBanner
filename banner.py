@@ -63,10 +63,10 @@ class CopyPasta():
                             f"https://www.reddit.com/r/{subreddit}"
                             f"/{listing}.json?count={count}&t={timeframe}"
                         )
-                    request = get(
+                    page = get(
                             base_url, headers=headers, timeout=10
                         )
-                    return request.json()
+                    return page.json()
 
                 except ConnectionError:
                     return None
@@ -77,10 +77,8 @@ class CopyPasta():
                 continue
 
             if listing != "random":
-                title = top_post["data"]["children"][0]["data"]["title"]
                 url = top_post["data"]["children"][0]["data"]["url"]
             else:
-                title = top_post[0]["data"]["children"][0]["data"]["title"]
                 url = top_post[0]["data"]["children"][0]["data"]["url"]
 
             def get_post() -> dict | None:
@@ -92,10 +90,10 @@ class CopyPasta():
                 """
 
                 try:
-                    request = get(
+                    page = get(
                             f"{url}.json", headers=headers, timeout=10
                         )
-                    return request.json()
+                    return page.json()
                 except Exception:
                     return None
 
