@@ -26,19 +26,27 @@ class CopyPasta():
             listing = 'random'
 
             headers = {
-                "Upgrade-Insecure-Requests": "1",
-                "Dnt": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-User": "?1",
-                "Sec-Fetch-Dest": "document",
-                "Referer": "https://www.reddit.com/u/Useful-Shoe914", # :P
-                "Accept-Encoding": "gzip, deflate, br",
-                "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"
-            }
-        
+                    "Upgrade-Insecure-Requests": "1",
+                    "Dnt": "1",
+                    "User-Agent": (
+                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+                            " AppleWebKit/537.36 (KHTML, like Gecko)"
+                            " Chrome/83.0.4103.61 Safari/537.36"
+                        ),
+                    "Accept": (
+                            "text/html,application/xhtml+xml,application"
+                            "/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+                            ",application/signed-exchange;v=b3;q=0.9"
+                        ),
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-User": "?1",
+                    "Sec-Fetch-Dest": "document",
+                    "Referer": "https://www.reddit.com/u/Useful-Shoe914", # :P
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"
+                }
+
             def get_reddit(subreddit, count) -> dict | None:
                 '''
                 get_reddit(subreddit, amount) -> dict or None
