@@ -91,11 +91,14 @@ class CopyPasta():
 
                 Gets the posts info
 
-                :returns dict or None: Json dictionary if no errors ocurred, else None
+                :returns dict or None: Json dictionary
+                 if no errors ocurred, else None
                 """
 
                 try:
-                    request = get(f"{url}.json", headers=headers, timeout=10)
+                    request = get(
+                            f"{url}.json", headers=headers, timeout=10
+                        )
                     return request.json()
                 except Exception:
                     return None
@@ -105,8 +108,19 @@ class CopyPasta():
                 if not selftext:
                     continue
 
-                selftext = selftext[0]["data"]["children"][0]["data"]["selftext"]
-                text2 = unquote(selftext.strip().replace(r"&amp;#x200B;","").replace("\n"," ").replace("      ",""))
+                selftext = (
+                        selftext[0]
+                            ["data"]
+                            ["children"][0]
+                            ["data"]
+                            ["selftext"]
+                    )
+                text2 = unquote(
+                    selftext.strip()
+                        .replace(r"&amp;#x200B;","")
+                        .replace("\n"," ")
+                        .replace("      ","")
+                    )
 
                 if text2 != "" and not "removed by reddit" in text2.lower():
                     return text2
@@ -134,7 +148,8 @@ def makeblock(x) -> str:
     """
     makeblock(ascii art) -> list
 
-    Turns the ASCII art in a perfect block, to prevent lines from shifting
+    Turns the ASCII art in a perfect block,
+    to prevent lines from shifting
 
     :param x str: The ASCII art to block-ify
     :returns str: Block-ified ASCII art
@@ -155,23 +170,21 @@ def makeblock(x) -> str:
 
 if __name__ == "__main__":
     text = CopyPasta().get() # gets a random copypasta
+
     if not text:
         text = "Failed to get copypasta :("
 
     banner = makeblock(choice(AsciiArts.ascii_art))
-    ascii_art1 = []
-
-    [ascii_art1.append(len(x)) for x in banner.split("\n")]
+    ascii_art1 = [len(x) for x in banner.split("\n")]
 
     width = text.terminal_size.columns-(max(ascii_art1)+3)
-    wrapper = TextWrapper(width = width)
-    word_list = wrapper.wrap(text = text)
+    wrapper = TextWrapper(width=width)
+    word_list = wrapper.wrap(text=text)
 
     num = 0
     abc = 0
 
     for x in banner.split("\n"):
-
         if x != "":
             if num != len(word_list):
                 print(x, word_list[num].strip())
@@ -184,4 +197,5 @@ if __name__ == "__main__":
         text1 = "".join(word_list[num:])
         wrapper = TextWrapper(width=(width+abc))
 
-        [print(line) for line in wrapper.wrap(text=text1)]
+        for line in wrapper.wrap(text=text1):
+            print(line)
