@@ -55,22 +55,28 @@ class CopyPasta():
 
                 :param subreddit str: Name of the subreddit
                 :param count str: Amount of posts to load
-                :returns None or dict: Json dictionary of comments if no errors ocurred, else None
+                :returns None or dict: Json dictionary of comments
+                if no errors ocurred, else None
                 '''
 
                 try:
-                    base_url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?count={count}&t={timeframe}'
-                    request = requests.get(base_url, headers=headers, timeout=10)
+                    base_url = (
+                            f'https://www.reddit.com/r/{subreddit}'
+                            f'/{listing}.json?count={count}&t={timeframe}'
+                        )
+                    request = get(
+                            base_url, headers=headers, timeout=10
+                        )
                     return request.json()
 
                 except Exception:
                     return None
- 
+
             top_post = get_reddit(subreddit, count)
             if not top_post: # if we get an error, request the page again
-                time.sleep(2) # sleep 2 seconds first
+                sleep(2) # sleep 2 seconds first
                 continue
- 
+
             if listing != 'random':
                 title = top_post['data']['children'][0]['data']['title']
                 url = top_post['data']['children'][0]['data']['url']
@@ -88,7 +94,7 @@ class CopyPasta():
                 '''
 
                 try:
-                    request = requests.get(f'{url}.json', headers=headers, timeout=10)
+                    request = get(f'{url}.json', headers=headers, timeout=10)
                     return request.json()
                 except Exception:
                     return None
